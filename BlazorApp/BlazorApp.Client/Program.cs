@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.AspNetCore.Components.Authorization;
 using BlazorApp.Client.Util;
+using BlazorApp.Client.Helpers;
 
 namespace BlazorApp.Client
 {
@@ -24,7 +25,15 @@ namespace BlazorApp.Client
 
             builder.Services.AddBaseAddressHttpClient();
 
+
+            ConfigureServices(builder.Services);
+
             await builder.Build().RunAsync();
+        }
+
+        private static void ConfigureServices(IServiceCollection services)
+        {
+            services.AddTransient<IRepository, RepositoryInMemory>();
         }
     }
 }

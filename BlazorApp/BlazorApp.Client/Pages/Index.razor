@@ -1,7 +1,26 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<div >
+	<h3>Movies</h3>
+	<div class="movies-container">
 
-Welcome to your new app.
+		@if (Movies == null)
+		{
+			<p><em>Loading...</em></p>
+		}
+		else
+		{
+			@foreach (var movie in Movies)
+			{
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+				<div class="individual-movie-container">
+					<a href="#">
+						<img src="@movie.Image" alt="Image" class="movie-image" />
+					</a>
+					<p><a href="#">@movie.TitleBrief</a></p>
+				</div>
+			}
+		}
+	</div>
+
+</div>
