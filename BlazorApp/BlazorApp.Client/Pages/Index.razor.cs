@@ -10,11 +10,11 @@ namespace BlazorApp.Client.Pages
     {
         [Inject] public HttpService HttpService { get; set; }
 
-        private List<Movie> Movies;
+        private List<Movie> _movies;
 
         protected async override Task OnInitializedAsync()
         {
-            Movies = await HttpService.Get<List<Movie>>("/movies");
+            _movies = await HttpService.Get<List<Movie>>("/movies");
         }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace BlazorApp.Api.Controllers
 {
@@ -12,6 +13,7 @@ namespace BlazorApp.Api.Controllers
         [HttpGet]
         public List<Movie> GetMultiple()
         {
+			Thread.Sleep(2000);
 			return new List<Movie>()
 			{
 				new Movie()
