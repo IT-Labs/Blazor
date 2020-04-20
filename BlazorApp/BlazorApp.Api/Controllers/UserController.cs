@@ -4,9 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace BlazorApp.Api.Controllers
 {
     [ApiController]
+    [Route("api/[controller]")]
     public class UserController : Controller
     {
-        [HttpGet("api/user/GetUser")]
+        [HttpGet]
         public BlazorUser GetUser()
         {
             BlazorUser objBlazorUser = new BlazorUser();

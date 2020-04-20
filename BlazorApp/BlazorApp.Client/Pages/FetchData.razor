@@ -1,6 +1,4 @@
 ﻿@page "/fetchdata"
-@using BlazorApp.Shared
-@inject HttpClient Http
 
 <h1>Weather forecast</h1>
 
@@ -9,7 +7,7 @@
 <AuthorizeView>
     <Authorized>
 
-        @if (forecasts == null)
+        @if (_forecasts == null)
         {
             <p><em>Loading...</em></p>
         }
@@ -25,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var forecast in forecasts)
+                    @foreach (var forecast in _forecasts)
                     {
                         <tr>
                             <td>@forecast.Date.ToShortDateString()</td>
@@ -43,25 +41,3 @@
         <p>Must be logged in</p>
     </NotAuthorized>
 </AuthorizeView>
-
-@code {
-
-	[CascadingParameter]
-	private Task<AuthenticationState> authenticationStateTask { get; set; }
-
-	private WeatherForecast[] forecasts;
-
-	protected override async Task OnInitializedAsync()
-	{
-		var authState = await authenticationStateTask;
-		var user = authState.User;
-
-		if (user.Identity != null)
-		{
-			if (user.Identity.IsAuthenticated)
-			{
-				forecasts = await Http.GetJsonAsync<WeatherForecast[]>("WeatherForecast");
-			}
-		}
-	}
-}

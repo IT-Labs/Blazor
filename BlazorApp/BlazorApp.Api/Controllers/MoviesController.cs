@@ -1,13 +1,17 @@
 ﻿using BlazorApp.Shared;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 
-namespace BlazorApp.Client.Helpers
+namespace BlazorApp.Api.Controllers
 {
-	public class RepositoryInMemory : IRepository
-	{
-		public List<Movie> GetMovies()
-		{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class MoviesController : Controller
+    {
+        [HttpGet]
+        public List<Movie> GetMultiple()
+        {
 			return new List<Movie>()
 			{
 				new Movie()
@@ -30,5 +34,5 @@ namespace BlazorApp.Client.Helpers
 				}
 			};
 		}
-	}
+    }
 }
