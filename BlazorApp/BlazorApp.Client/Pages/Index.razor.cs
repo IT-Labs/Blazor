@@ -1,4 +1,4 @@
-﻿using BlazorApp.Client.Helpers;
+﻿using BlazorApp.Client.Models;
 using BlazorApp.Shared;
 using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
@@ -8,13 +8,13 @@ namespace BlazorApp.Client.Pages
 {
     public partial class Index
     {
-        [Inject]
-        IRepository repository { get; set; }
+        [Inject] public HttpService HttpService { get; set; }
 
-        private List<Movie> Movies;
+        private List<Movie> _movies;
+
         protected async override Task OnInitializedAsync()
         {
-            Movies = repository.GetMovies();
+            _movies = await HttpService.Get<List<Movie>>("/movies");
         }
     }
 }

@@ -2,25 +2,5 @@
 
 <div >
 	<h3>Movies</h3>
-	<div class="movies-container">
-
-		@if (Movies == null)
-		{
-			<p><em>Loading...</em></p>
-		}
-		else
-		{
-			@foreach (var movie in Movies)
-			{
-
-				<div class="individual-movie-container">
-					<a href="#">
-						<img src="@movie.Image" alt="Image" class="movie-image" />
-					</a>
-					<p><a href="#">@movie.TitleBrief</a></p>
-				</div>
-			}
-		}
-	</div>
-
+	<MoviesList Movies="_movies" />
 </div>

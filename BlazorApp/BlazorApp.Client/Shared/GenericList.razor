@@ -1,0 +1,13 @@
+﻿@typeparam T
+
+@if (Elements == null)
+{
+    <img src="https://media.giphy.com/media/wf5vRpksRJVtK/giphy.gif" />
+}
+else
+{
+    @foreach (var element in Elements)
+    {
+        @ElementTemplate(element)
+    }
+}

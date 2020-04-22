@@ -1,9 +1,7 @@
-﻿using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using BlazorApp.Client.Models;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.AspNetCore.Components.Authorization;
-using BlazorApp.Client.Util;
-using BlazorApp.Client.Helpers;
+using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
 
 namespace BlazorApp.Client
 {
@@ -12,28 +10,24 @@ namespace BlazorApp.Client
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            // Use our CustomAuthenticationProvider as the 
-
-            // AuthenticationStateProvider
-            builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationProvider>();
-
-            // Add Authentication support
-            builder.Services.AddOptions();
-            builder.Services.AddAuthorizationCore();
-
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddBaseAddressHttpClient();
-
+            builder.Services.AddMsalAuthentication(options =>
+            {
+                var authentication = options.ProviderOptions.Authentication;
+                authentication.Authority = "https://login.microsoftonline.com/common";
+                authentication.ClientId = "13705342-1d5a-4558-89ae-5b8025b29d34";
+                authentication.RedirectUri = "https://localhost:44375/signin-oidc";
+            });
 
             ConfigureServices(builder.Services);
 
             await builder.Build().RunAsync();
         }
-
         private static void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IRepository, RepositoryInMemory>();
+            services.AddSingleton<HttpService>();
         }
     }
 }
