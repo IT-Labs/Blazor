@@ -1,7 +1,25 @@
-﻿<div class="movies-container">
-    <GenericList Elements="Movies">
-        <ElementTemplate>
-            <SingleMovie Movie="context" />
-        </ElementTemplate>
-    </GenericList>
+﻿@using BlazorTable
+
+<div class="movies-container">
+    @if (ShowGrid)
+    {
+        <Table TableItem="Movie" Items="Movies" PageSize="5">
+            <Column TableItem="Movie" Title="Title" Field="@(x => x.Title)" Sortable="true" Filterable="true" Width="50%" />
+            <Column TableItem="Movie" Title="ReleaseDate" Field="@(x => x.ReleaseDate)" Sortable="true" Filterable="true" Width="40%" />
+            <Column TableItem="Movie" Title="Image" Sortable="false" Filterable="false" Width="10%">
+                <Template>
+                    <SingleMovie Movie="context" ShowGrid="ShowGrid" />
+                </Template>
+            </Column>
+            <Pager ShowPageNumber="true" ShowTotalCount="true" />
+        </Table>
+    }
+    else
+    {
+        <GenericList Elements="Movies">
+            <ElementTemplate>
+                <SingleMovie Movie="context" ShowGrid="ShowGrid" />
+            </ElementTemplate>
+        </GenericList>
+    }
 </div>
