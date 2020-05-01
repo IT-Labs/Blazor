@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Validators\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorApp.Contracts\BlazorApp.Contracts.csproj" />
+    <ProjectReference Include="..\Core.Framework\Core.Framework.csproj" />
+  </ItemGroup>
+
+</Project>

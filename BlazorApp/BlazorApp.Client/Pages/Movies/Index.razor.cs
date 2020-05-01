@@ -1,5 +1,5 @@
 ﻿using BlazorApp.Client.Models;
-using BlazorApp.Shared;
+using BlazorApp.Shared.Entities;
 using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 using System.Threading.Tasks;
