@@ -1,7 +1,7 @@
-﻿using BlazorApp.Shared;
-using BlazorApp.Shared.Requests;
-using BlazorApp.Shared.Validation;
-using BlazorApp.Shared.ValidationCodes;
+﻿using Core.Shared;
+using Core.Shared.Requests;
+using Core.Shared.Validation;
+using Core.Shared.ValidationCodes;
 using Core.Framework.Repository;
 using Core.Framework.Repository.Queries.Entities;
 using FluentValidation;

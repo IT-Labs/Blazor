@@ -1,6 +1,6 @@
-using BlazorApp.Shared.Enums;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Requests;
+using Core.Shared.Enums;
+using Core.Shared.Interfaces;
+using Core.Shared.Requests;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Query.Internal;

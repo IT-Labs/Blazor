@@ -1,4 +1,4 @@
-using BlazorApp.Shared.Interfaces;
+using Core.Shared.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 

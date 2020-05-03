@@ -1,9 +1,6 @@
-using BlazorApp.Shared;
-using BlazorApp.Shared.ConfigurationValues;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Repository;
+using Core.Shared.Interfaces;
+using Core.Shared.Repository;
 using Lamar;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;

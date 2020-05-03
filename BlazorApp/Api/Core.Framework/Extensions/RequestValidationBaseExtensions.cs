@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Validation;
+using Core.Shared.Interfaces;
+using Core.Shared.Validation;
 using Core.Framework.Validation;
 
 namespace Core.Framework.Extensions
@@ -38,9 +38,9 @@ namespace Core.Framework.Extensions
                     contextValidator.UserContext = userContext;
                 }
 
-                var validationResult = validator.ExecuteValidation(request);
+                var validationResult = validator.Validate(request);
 
-                if (validationResult.State != ValidationStatus.Invalid)
+                if (validationResult.IsValid)
                 {
                     return false;
                 }

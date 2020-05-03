@@ -1,6 +1,6 @@
-using BlazorApp.Shared;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Requests;
+using Core.Shared;
+using Core.Shared.Interfaces;
+using Core.Shared.Requests;
 
 namespace Core.Framework.Repository.Queries
 {

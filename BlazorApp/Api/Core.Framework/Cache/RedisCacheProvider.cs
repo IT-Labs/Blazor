@@ -1,7 +1,7 @@
 using System;
 using System.Text;
-using BlazorApp.Shared.Cache;
-using BlazorApp.Shared.Enums;
+using Core.Shared.Cache;
+using Core.Shared.Enums;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;

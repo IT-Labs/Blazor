@@ -1,15 +1,11 @@
 ﻿using BlazorApp.Contracts.Managers;
-using BlazorApp.Shared.DTOs.Requests;
 using BlazorApp.Shared.Entities;
-using BlazorApp.Shared.Requests;
-using BlazorApp.Shared.Requests.Movie;
-using BlazorApp.Shared.Response;
+using BlazorApp.Shared.Requests.Movies;
 using Core.Framework;
+using Core.Shared.Requests;
+using Core.Shared.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 
 namespace BlazorApp.Api.Controllers
@@ -26,25 +22,29 @@ namespace BlazorApp.Api.Controllers
         }
 
         [HttpGet]
-        public List<Movie> GetMultiple([FromQuery] GetMoviesRequest request)
+        public PagedResponse<Movie> GetMultiple([FromQuery] GetMoviesRequest request)
         {
-            return _movieManager.GetMultiple(request).Payload.ToList();
+            Thread.Sleep(1000);
+            return _movieManager.GetMultiple(request);
         }
 
         [HttpPost]
-        public int Save([FromBody] SaveMovieRequest request)
+        public Response<long> Save([FromBody] SaveMovieRequest request)
         {
-            //TODO: add save logic here
-            return 0;
+            return _movieManager.Save(request);
         }
 
         [HttpGet("{id}")]
-        public Movie Get([FromRoute] IdRequest request)
+        public Response<Movie> Get([FromRoute] IdRequest request)
         {
-            return _movieManager.Get(request).Payload;
+            return _movieManager.Get(request);
         }
 
         [HttpPut("{id}")]
-        public long Update([FromRoute] IdRequest idRequest, [FromBody]SaveMovieRequest request) => Get(idRequest).Id;
+        public Response<long> Update([FromRoute] IdRequest idRequest, [FromBody]SaveMovieRequest request)
+        {
+            request.Id = idRequest.Id;
+            return _movieManager.Save(request);
+        }
     }
 }

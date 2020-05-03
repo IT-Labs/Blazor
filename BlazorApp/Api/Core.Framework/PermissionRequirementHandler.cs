@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using BlazorApp.Shared.Enums;
+using Core.Shared.Enums;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Core.Framework

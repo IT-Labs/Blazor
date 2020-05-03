@@ -1,0 +1,16 @@
+﻿@page "/premiere-calendar"
+
+@if (_moviesResponse == null)
+{
+    <div class="col-4 offset-4 text-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+}
+else
+{
+    <DxScheduler StartDate="@DateTime.Today" DataStorage="@_dataStorage" ActiveViewType="@SchedulerViewType.Week">
+        <DxSchedulerWeekView VisibleTime="@_visibleTime" WorkTime="@_workTime" ShowWorkTimeOnly="false"></DxSchedulerWeekView>
+    </DxScheduler>
+}

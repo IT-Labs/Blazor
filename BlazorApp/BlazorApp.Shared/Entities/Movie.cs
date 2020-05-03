@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using Core.Shared;
 
 namespace BlazorApp.Shared.Entities
 {
@@ -8,6 +9,8 @@ namespace BlazorApp.Shared.Entities
         public string Title { get; set; }
         public DateTime? ReleaseDate { get; set; }
         public string Image { get; set; }
+        public DateTime PremiereDate { get; set; }
+        public int LengthMinutes { get; set; } = 120;
 
         [NotMapped]
         public string TitleBrief

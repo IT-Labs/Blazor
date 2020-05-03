@@ -1,5 +1,5 @@
-﻿using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Repository;
+﻿using Core.Shared.Interfaces;
+using Core.Shared.Repository;
 using Core.Framework.Repository.Queries.Entities;
 using System.Linq;
 

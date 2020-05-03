@@ -1,0 +1,9 @@
+﻿<div class="individual-movie-container" style="margin-right: 5%;">
+    <div class="card border-light mb-3" style="width: 18rem;">
+        <img class="card-img-top" src="@Movie.Image" alt="Image" style="@(ShowGrid ? "height:180px;" : "width:286px;")" />
+        <div class="card-body">
+            <h5 class="card-title">@Movie.TitleBrief</h5>
+            <a href="/movies/save/@Movie.Id" class="btn btn-outline-info">Edit</a>
+        </div>
+    </div>
+</div>

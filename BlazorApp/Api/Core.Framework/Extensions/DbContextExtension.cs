@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using BlazorApp.Shared;
+using Core.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Query;

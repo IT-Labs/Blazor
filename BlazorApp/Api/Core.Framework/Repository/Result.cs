@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
-using BlazorApp.Shared.Enums;
-using BlazorApp.Shared.Repository;
-using BlazorApp.Shared.Response;
+using Core.Shared.Enums;
+using Core.Shared.Repository;
+using Core.Shared.Response;
 using Core.Framework.Extensions;
 
 namespace Core.Framework.Repository

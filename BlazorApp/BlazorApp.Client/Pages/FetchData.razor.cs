@@ -1,8 +1,9 @@
-﻿using BlazorApp.Client.Models;
-using BlazorApp.Shared;
+﻿using BlazorApp.Client.Services;
+using BlazorApp.Shared.Entities;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BlazorApp.Client.Pages
@@ -21,7 +22,8 @@ namespace BlazorApp.Client.Pages
 
 			if (authState.User.Identity != null && authState.User.Identity.IsAuthenticated)
 			{
-				_forecasts = await HttpService.Get<List<WeatherForecast>>("/weatherforecast");
+				var response = await HttpService.GetMultiple<WeatherForecast>("/weatherforecast");
+				_forecasts = response.Payload.ToList();
 			}
 		}
 	}

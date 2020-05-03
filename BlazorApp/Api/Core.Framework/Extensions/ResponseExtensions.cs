@@ -1,12 +1,12 @@
 using System;
 using System.Linq;
 using System.Net;
-using BlazorApp.Shared;
-using BlazorApp.Shared.Enums;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Repository;
-using BlazorApp.Shared.Response;
-using BlazorApp.Shared.Validation;
+using Core.Shared;
+using Core.Shared.Enums;
+using Core.Shared.Interfaces;
+using Core.Shared.Repository;
+using Core.Shared.Response;
+using Core.Shared.Validation;
 using Core.Framework.Repository;
 using Core.Framework.Validation;
 
@@ -39,6 +39,26 @@ namespace Core.Framework.Extensions
                         Message = validationError.Message,
                         Type = ResponseMessageType.Validation,
                         Args = validationError.Args
+                    });
+                }
+            }
+        }
+
+        public static void Merge(this IResponse originalResponse, FluentValidation.Results.ValidationResult validationResult)
+        {
+
+            if (validationResult == null) return;
+            if (!validationResult.IsValid)
+            {
+                originalResponse.Status = HttpStatusCode.BadRequest;
+
+                foreach (var validationError in validationResult.Errors)
+                {
+                    originalResponse.Messages.Add(new ResponseMessage
+                    {
+                        Code = validationError.ErrorCode,
+                        Message = validationError.ErrorMessage,
+                        Type = ResponseMessageType.Validation
                     });
                 }
             }

@@ -1,6 +1,6 @@
-﻿using BlazorApp.Shared;
-using BlazorApp.Shared.Repository;
-using BlazorApp.Shared.Requests.Histories;
+﻿using Core.Shared;
+using Core.Shared.Repository;
+using Core.Shared.Requests.Histories;
 using Core.Framework.Extensions;
 using System.Linq;
 using System.Net;

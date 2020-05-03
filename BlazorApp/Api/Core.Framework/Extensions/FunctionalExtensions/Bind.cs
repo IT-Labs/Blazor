@@ -1,4 +1,4 @@
-﻿using BlazorApp.Shared.Response;
+﻿using Core.Shared.Response;
 using System;
 using System.Collections.Generic;
 using System.Text;

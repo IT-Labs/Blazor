@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using BlazorApp.Shared;
-using BlazorApp.Shared.Interfaces;
+using Core.Shared;
+using Core.Shared.Interfaces;
 using Core.Framework.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;

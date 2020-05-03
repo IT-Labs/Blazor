@@ -1,4 +1,4 @@
-﻿using BlazorApp.Shared.Repository;
+﻿using Core.Shared.Repository;
 using Core.Framework.Repository;
 using Microsoft.Extensions.Logging;
 

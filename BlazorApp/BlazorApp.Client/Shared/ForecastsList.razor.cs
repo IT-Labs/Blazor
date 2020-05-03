@@ -1,4 +1,4 @@
-﻿using BlazorApp.Shared;
+﻿using BlazorApp.Shared.Entities;
 using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 

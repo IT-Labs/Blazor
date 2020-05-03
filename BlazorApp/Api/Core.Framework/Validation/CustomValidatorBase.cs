@@ -1,6 +1,6 @@
 ﻿using System;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Validation;
+using Core.Shared.Interfaces;
+using Core.Shared.Validation;
 
 namespace Core.Framework.Validation
 {

@@ -1,8 +1,8 @@
 ﻿using BlazorApp.Shared.Entities;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using static BlazorApp.Shared.AuditableEntity;
+using System.Linq;
+using static Core.Shared.AuditableEntity;
 
 namespace Core.Framework
 {
@@ -79,7 +79,16 @@ namespace Core.Framework
                     Image = "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg"
                 }
             };
-            movies.ForEach(movie => movie.UpdateAuditableProperties(AuditableAction.Insert));
+
+            var random = new Random();
+
+            movies = movies.Select((movie, index) =>
+            {
+                movie.PremiereDate = new DateTime(2020, 5, index + 1, 18 - random.Next(1, 6), 00, 00);
+                movie.UpdateAuditableProperties(AuditableAction.Insert);
+                return movie;
+            }).ToList();
+
             return movies;
         }
     }

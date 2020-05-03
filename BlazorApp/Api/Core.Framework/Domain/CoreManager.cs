@@ -1,9 +1,9 @@
-using BlazorApp.Shared;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Managers;
-using BlazorApp.Shared.Repository;
-using BlazorApp.Shared.Requests;
-using BlazorApp.Shared.Response;
+using Core.Shared;
+using Core.Shared.Interfaces;
+using Core.Shared.Managers;
+using Core.Shared.Repository;
+using Core.Shared.Requests;
+using Core.Shared.Response;
 using Core.Framework.Extensions;
 using Core.Framework.Repository;
 using Core.Framework.Repository.Queries;

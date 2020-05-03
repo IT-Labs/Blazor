@@ -1,6 +1,6 @@
 using System;
-using BlazorApp.Shared.Enums;
-using BlazorApp.Shared.Interfaces;
+using Core.Shared.Enums;
+using Core.Shared.Interfaces;
 
 namespace Core.Framework
 {

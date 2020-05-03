@@ -1,6 +1,6 @@
-﻿using BlazorApp.Shared.Requests.File;
-using BlazorApp.Shared.Validation;
-using BlazorApp.Shared.ValidationCodes;
+﻿using Core.Shared.Requests.File;
+using Core.Shared.Validation;
+using Core.Shared.ValidationCodes;
 using Core.Framework.Extensions;
 using FluentValidation;
 

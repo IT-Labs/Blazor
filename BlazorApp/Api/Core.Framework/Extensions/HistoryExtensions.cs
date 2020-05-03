@@ -1,5 +1,5 @@
-﻿using BlazorApp.Shared;
-using BlazorApp.Shared.Dto;
+﻿using Core.Shared;
+using Core.Shared.Dto;
 using System.Collections.Generic;
 using System.Linq;
 

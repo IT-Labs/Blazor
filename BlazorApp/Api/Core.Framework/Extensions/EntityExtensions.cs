@@ -1,4 +1,4 @@
-﻿using BlazorApp.Shared;
+﻿using Core.Shared;
 using Core.Framework.Converters;
 using Newtonsoft.Json;
 using System;

@@ -2,12 +2,28 @@
 
 @if (Elements == null)
 {
-    <img src="https://media.giphy.com/media/wf5vRpksRJVtK/giphy.gif" />
+    <div class="col-4 offset-4 text-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
 }
-else
+else if (Elements.Ok)
 {
-    @foreach (var element in Elements)
+    if (Elements.Payload.Any())
     {
-        @ElementTemplate(element)
+        @foreach (var element in Elements.Payload)
+        {
+            @ElementTemplate(element)
+        }
     }
-}
+    else
+    {
+        <div class="col-4 offset-4 text-center">
+            <div class="spinner-grow" role="status">
+                <span class="sr-only">No elements</span>
+            </div>
+            <h3>No elements</h3>
+        </div>
+    }
+};

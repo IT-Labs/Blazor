@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using BlazorApp.Shared;
+using Core.Shared;
 
 namespace Core.Framework.Repository.Filters
 {

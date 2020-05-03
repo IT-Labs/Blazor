@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using TimeZoneConverter;
 
 namespace Core.Framework.Extensions
@@ -32,7 +34,7 @@ namespace Core.Framework.Extensions
 
         public static DateTime FromUtcToEst(this DateTime date)
         {
-            var easternZoneId = "Eastern Standard Time";
+            var easternZoneId = "Central European Standard Time";
             var easternZone = TZConvert.GetTimeZoneInfo(easternZoneId);
             var estDate = TimeZoneInfo.ConvertTimeFromUtc(date, easternZone);
             return estDate;
@@ -42,5 +44,16 @@ namespace Core.Framework.Extensions
         {
             return date.ToString("MM/dd/yyyy hh:mm tt");
         }
+
+        public static IEnumerable<string> GetTimezones()
+	    {
+		    var list = TimeZoneInfo.GetSystemTimeZones().Select(x => new
+			{
+				x.DisplayName,
+				x.Id
+			});
+
+            return list.Select(x => x.DisplayName);
+	    }
     }
 }

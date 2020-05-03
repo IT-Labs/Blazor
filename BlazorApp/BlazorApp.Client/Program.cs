@@ -1,6 +1,9 @@
-﻿using BlazorApp.Client.Models;
+﻿using BlazorApp.Client.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sotsera.Blazor.Toaster.Core.Models;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace BlazorApp.Client
@@ -11,14 +14,19 @@ namespace BlazorApp.Client
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
+            var configuration = new ConfigurationBuilder()
+                .AddJsonStream(Assembly.GetExecutingAssembly().GetManifestResourceStream("BlazorApp.Client.appsettings.json"))
+                .Build();
+            builder.Services.AddSingleton(configuration);
 
             builder.Services.AddBaseAddressHttpClient();
             builder.Services.AddMsalAuthentication(options =>
             {
                 var authentication = options.ProviderOptions.Authentication;
-                authentication.Authority = "https://login.microsoftonline.com/common";
-                authentication.ClientId = "13705342-1d5a-4558-89ae-5b8025b29d34";
-                authentication.RedirectUri = "https://localhost:44375/signin-oidc";
+                var azureConfig = configuration.GetSection("AzureAD");
+                authentication.Authority = azureConfig["Authority"].ToString();
+                authentication.ClientId = azureConfig["ClientId"].ToString();
+                authentication.RedirectUri = azureConfig["RedirectUri"].ToString();
             });
 
             ConfigureServices(builder.Services);
@@ -27,7 +35,19 @@ namespace BlazorApp.Client
         }
         private static void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<HttpService>();
+            services.AddToaster(config =>
+            {
+                config.PositionClass = Defaults.Classes.Position.TopRight;
+                config.ToastTitleClass = $"{Defaults.Classes.ToastTitle} {Defaults.Classes.TextPosition.Left}";
+                config.ToastMessageClass = $"{Defaults.Classes.ToastMessage} {Defaults.Classes.TextPosition.Left}";
+                config.PreventDuplicates = false;
+                config.NewestOnTop = true;
+            });
+
+            services.AddScoped<ToasterService>();
+            services.AddScoped<HttpService>();
+            services.AddScoped<MoviesService>();
+            services.AddDevExpressBlazor();
         }
     }
 }

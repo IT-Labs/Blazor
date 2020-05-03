@@ -1,4 +1,4 @@
-﻿using BlazorApp.Shared;
+﻿using Core.Shared;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Core.Framework.Repository

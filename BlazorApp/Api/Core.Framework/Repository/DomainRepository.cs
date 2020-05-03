@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Repository;
+using Core.Shared.Interfaces;
+using Core.Shared.Repository;
 using Core.Framework.Extensions;
 using Microsoft.Extensions.Logging;
 

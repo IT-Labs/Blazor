@@ -1,5 +1,5 @@
 ﻿using System;
-using BlazorApp.Shared.Interfaces;
+using Core.Shared.Interfaces;
 
 namespace Core.Framework.InterfaceExtensions
 {

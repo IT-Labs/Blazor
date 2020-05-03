@@ -1,4 +1,4 @@
-using BlazorApp.Shared.Cache;
+using Core.Shared.Cache;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 

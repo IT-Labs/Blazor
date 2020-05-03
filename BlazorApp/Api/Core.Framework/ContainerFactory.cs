@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using BlazorApp.Shared;
-using BlazorApp.Shared.Repository;
-using BlazorApp.Shared.Validation;
+using Core.Shared;
+using Core.Shared.Repository;
+using Core.Shared.Validation;
+using FluentValidation;
 
 namespace Core.Framework
 {
@@ -27,10 +28,16 @@ namespace Core.Framework
         /// </summary>
         /// <typeparam name="TEntity">Entity on which this validation rule is implemented</typeparam>
         /// <returns>Definition of created validator</returns>
-        public static IValidator<TEntity> GetValidator<TEntity>()
+        /*public static IValidator<TEntity> GetValidator<TEntity>()
         {
             var validator = _container?.TryGetInstance(typeof(IValidator<TEntity>));
             return validator as IValidator<TEntity>;
+        }*/
+
+        public static AbstractValidator<TEntity> GetValidator<TEntity>()
+        {
+            var validator = _container?.TryGetInstance(typeof(AbstractValidator<TEntity>));
+            return validator as AbstractValidator<TEntity>;
         }
 
         /// <summary>
@@ -38,7 +45,7 @@ namespace Core.Framework
         /// </summary>
         /// <param name="t">Type of Entity on which this validation rule is implemented</param>
         /// <returns>Definition of created validator</returns>
-        public static IValidator GetValidator(Type t)
+        public static Core.Shared.Validation.IValidator GetValidator(Type t)
         {
             var validator = _container?.TryGetInstance(t);
             return validator;

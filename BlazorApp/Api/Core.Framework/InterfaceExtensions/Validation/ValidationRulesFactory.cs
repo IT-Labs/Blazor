@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using BlazorApp.Shared.Enums;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Validation;
-using BlazorApp.Shared.ValidationCodes;
+using Core.Shared.Enums;
+using Core.Shared.Interfaces;
+using Core.Shared.Validation;
+using Core.Shared.ValidationCodes;
 using Core.Framework.Extensions;
 using Core.Framework.Validation;
 

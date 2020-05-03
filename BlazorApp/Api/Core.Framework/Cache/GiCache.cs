@@ -1,5 +1,5 @@
 using System;
-using BlazorApp.Shared.Cache;
+using Core.Shared.Cache;
 
 namespace Core.Framework.Cache
 {

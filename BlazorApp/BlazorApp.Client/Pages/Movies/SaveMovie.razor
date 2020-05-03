@@ -1,26 +1,49 @@
 ﻿@page "/movies/save"
 @page "/movies/save/{Id:int}"
 
+@if (Id.HasValue)
+{
+    <h3>Edit Movie</h3>
+}
+else
+{
+    <h3>Create Movie</h3>
+}
 
-<h3>SaveMovie</h3>
-
-<EditForm Model="SaveMovieRequest" OnSubmit="CreateMovie">
-    <div class="col-md-3">
-        <div class="form-group">
-            <label>Title</label>
-            <InputText type="text" class="form-control"
-                       placeholder="Title" @bind-Value="SaveMovieRequest.Title" />
+<EditForm Model="_saveMovieRequest" OnValidSubmit="CreateOrUpdateMovie">
+    <FluentValidator Validator="_saveMovieRequestValidator"></FluentValidator>
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                <label>Title</label>
+                <InputText type="text" class="form-control" placeholder="Title" @bind-Value="_saveMovieRequest.Title" />
+                <ValidationMessage For="() => _saveMovieRequest.Title"></ValidationMessage>
+            </div>
+            <div class="form-group">
+                <label>Release Date</label>
+                <DxDateEdit FirstDayOfWeek="@DayOfWeek.Monday"
+                            PickerDisplayMode="@DatePickerDisplayMode.Calendar"
+                            @bind-Date="@_saveMovieRequest.ReleaseDate"
+                            NullText="Please select a date"
+                            DropDownVisible="@false">
+                </DxDateEdit>
+                <ValidationMessage For="() => _saveMovieRequest.ReleaseDate"></ValidationMessage>
+            </div>
+            <div class="form-group">
+                <label>Movie Poster</label>
+                <InputText type="text" class="form-control" placeholder="Paste image url" @bind-Value="_saveMovieRequest.Image" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
         </div>
-        <div class="form-group">
-
-            <InputDate type="text" class="form-control"
-                       placeholder="Release Date" @bind-Value="SaveMovieRequest.ReleaseDate" />
+        <div class="col-3 offset-1">
+            @if (string.IsNullOrWhiteSpace(_saveMovieRequest?.Image))
+            {
+                <img src="https://via.placeholder.com/200x200.png?text=Put+Here+Movie+Poster" alt="Image" style="width:286px;" />
+            }
+            else
+            {
+                <img src="@_saveMovieRequest.Image" alt="Image" style="width:286px;" />
+            }
         </div>
-        <div class="form-group">
-
-            <InputText type="text" class="form-control"
-                       placeholder="Paste image url" @bind-Value="SaveMovieRequest.Image" />
-        </div>
-        <button type="submit" class="btn btn-primary">Save</button>
     </div>
 </EditForm>

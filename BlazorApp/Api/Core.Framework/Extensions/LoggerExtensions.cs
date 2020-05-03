@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using BlazorApp.Shared.Response;
+using Core.Shared.Response;
 using Microsoft.Extensions.Logging;
 
 namespace Core.Framework.Extensions

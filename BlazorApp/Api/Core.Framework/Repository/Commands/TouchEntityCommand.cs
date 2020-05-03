@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Net;
-using BlazorApp.Shared;
-using BlazorApp.Shared.Repository;
-using BlazorApp.Shared.Requests;
-using BlazorApp.Shared.ValidationCodes;
+using Core.Shared;
+using Core.Shared.Repository;
+using Core.Shared.Requests;
+using Core.Shared.ValidationCodes;
 using Core.Framework.Extensions;
 
 namespace Core.Framework.Repository.Commands

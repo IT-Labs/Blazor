@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using BlazorApp.Shared.Interfaces;
+using Core.Shared.Interfaces;
 
 namespace Core.Framework.Extensions
 {

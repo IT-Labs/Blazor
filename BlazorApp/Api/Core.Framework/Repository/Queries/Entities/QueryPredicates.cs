@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
-using BlazorApp.Shared;
-using BlazorApp.Shared.Interfaces;
+using Core.Shared;
+using Core.Shared.Interfaces;
 
 namespace Core.Framework.Repository.Queries.Entities
 {

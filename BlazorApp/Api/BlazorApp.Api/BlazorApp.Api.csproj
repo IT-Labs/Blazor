@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\BlazorApp.Shared\BlazorApp.Shared.csproj" />
+    <ProjectReference Include="..\..\Core.Shared\Core.Shared.csproj" />
+    <ProjectReference Include="..\..\Core.Shared\Core.Shared.csproj" />
     <ProjectReference Include="..\BlazorApp.Contracts\BlazorApp.Contracts.csproj" />
     <ProjectReference Include="..\BlazorApp.DataContext\BlazorApp.DataContext.csproj" />
     <ProjectReference Include="..\BlazorApp.Domain\BlazorApp.Domain.csproj" />

@@ -1,4 +1,4 @@
-﻿using BlazorApp.Shared.Response;
+﻿using Core.Shared.Response;
 using System;
 
 namespace Core.Framework.Extensions

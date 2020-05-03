@@ -1,8 +1,8 @@
-﻿using BlazorApp.Shared;
-using BlazorApp.Shared.Enums;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Requests;
-using BlazorApp.Shared.Response;
+﻿using Core.Shared;
+using Core.Shared.Enums;
+using Core.Shared.Interfaces;
+using Core.Shared.Requests;
+using Core.Shared.Response;
 using System;
 using System.Threading.Tasks;
 

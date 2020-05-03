@@ -1,6 +1,6 @@
 using BlazorApp.DataContext;
 using BlazorApp.Repository;
-using BlazorApp.Shared.Repository;
+using Core.Shared.Repository;
 using Core.Framework;
 using Core.Framework.Repository;
 using Lamar;

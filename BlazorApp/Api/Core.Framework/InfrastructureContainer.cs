@@ -1,5 +1,5 @@
-﻿using BlazorApp.Shared.Repository;
-using BlazorApp.Shared.Validation;
+﻿using Core.Shared.Repository;
+using Core.Shared.Validation;
 using System;
 using System.Collections.Generic;
 using System.Text;

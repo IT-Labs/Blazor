@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using BlazorApp.Shared;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Repository;
+using Core.Shared;
+using Core.Shared.Interfaces;
+using Core.Shared.Repository;
 using Core.Framework.Repository.Queries;
 
 namespace Core.Framework.Repository.Filters

@@ -1,5 +1,5 @@
-﻿using BlazorApp.Shared.Enums;
-using BlazorApp.Shared.ValidationCodes;
+﻿using Core.Shared.Enums;
+using Core.Shared.ValidationCodes;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;

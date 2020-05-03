@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Validation;
+using Core.Shared.Interfaces;
+using Core.Shared.Validation;
 using Core.Framework.Validation;
 
 namespace Core.Framework.InterfaceExtensions.Validation

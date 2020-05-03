@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using BlazorApp.Shared.Enums;
+using Core.Shared.Enums;
 using Microsoft.AspNetCore.Http;
 
 namespace Core.Framework.Extensions

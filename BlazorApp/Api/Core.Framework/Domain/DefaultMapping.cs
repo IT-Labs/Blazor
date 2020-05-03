@@ -1,7 +1,7 @@
-﻿using BlazorApp.Shared;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Repository;
-using BlazorApp.Shared.Requests;
+﻿using Core.Shared;
+using Core.Shared.Interfaces;
+using Core.Shared.Repository;
+using Core.Shared.Requests;
 using Omu.ValueInjecter;
 
 

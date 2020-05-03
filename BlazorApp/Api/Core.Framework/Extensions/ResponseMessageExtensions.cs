@@ -1,6 +1,6 @@
 ﻿using System;
-using BlazorApp.Shared.Enums;
-using BlazorApp.Shared.Response;
+using Core.Shared.Enums;
+using Core.Shared.Response;
 
 namespace Core.Framework.Extensions
 {

@@ -1,7 +1,7 @@
-﻿using BlazorApp.Shared;
-using Core.Framework;
+﻿using Core.Framework;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using BlazorApp.Shared.Entities;
 
 namespace BlazorApp.Api.Controllers
 {

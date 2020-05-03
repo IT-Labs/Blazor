@@ -1,4 +1,4 @@
-﻿using BlazorApp.Shared;
+﻿using Core.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

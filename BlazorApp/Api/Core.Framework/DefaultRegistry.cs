@@ -1,11 +1,12 @@
-using BlazorApp.Shared.ESB;
-using BlazorApp.Shared.Managers;
-using BlazorApp.Shared.Repository;
-using BlazorApp.Shared.Validation;
+using Core.Shared.ESB;
+using Core.Shared.Managers;
+using Core.Shared.Repository;
+using Core.Shared.Validation;
 using Core.Framework.Repository;
+using FluentValidation;
 using Lamar.Scanning.Conventions;
-using IContainer = BlazorApp.Shared.Validation.IContainer;
-using IContext = BlazorApp.Shared.Repository.IContext;
+using IContainer = Core.Shared.Validation.IContainer;
+using IContext = Core.Shared.Repository.IContext;
 
 namespace Core.Framework
 {
@@ -23,7 +24,8 @@ namespace Core.Framework
                     scan.With(new FindAllTypesFilter(typeof(IContext)));
                     scan.With(new FindAllTypesFilter(typeof(IFileManager)));
                     scan.With(new FindAllTypesFilter(typeof(DomainRepository)));
-                    scan.ConnectImplementationsToTypesClosing(typeof(IValidator<>));
+                    //scan.ConnectImplementationsToTypesClosing(typeof(Core.Shared.Validation.IValidator<>));
+                    scan.ConnectImplementationsToTypesClosing(typeof(AbstractValidator<>));
                     scan.ConnectImplementationsToTypesClosing(typeof(IMap<,>));
                     scan.ConnectImplementationsToTypesClosing(typeof(IConsume<>));
                 });

@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Repository;
+using Core.Shared.Interfaces;
+using Core.Shared.Repository;
 using Core.Framework.Extensions;
 
 namespace Core.Framework.Repository.Queries

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
-using BlazorApp.Shared;
-using BlazorApp.Shared.Enums;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Repository;
-using BlazorApp.Shared.Requests;
-using BlazorApp.Shared.Validation;
+using Core.Shared;
+using Core.Shared.Enums;
+using Core.Shared.Interfaces;
+using Core.Shared.Repository;
+using Core.Shared.Requests;
+using Core.Shared.Validation;
 using Core.Framework.Extensions;
 using Core.Framework.Repository;
 using Core.Framework.Repository.Queries;
@@ -20,7 +20,7 @@ namespace Core.Framework.Validation
     ///     Basic validation description
     /// </summary>
     /// <typeparam name="TEntity">Entity on which this validation rule is implemented</typeparam>
-    public abstract class ValidatorBase<TEntity> : AbstractValidator<TEntity>, BlazorApp.Shared.Validation.IValidator<TEntity>
+    public abstract class ValidatorBase<TEntity> : AbstractValidator<TEntity>, Core.Shared.Validation.IValidator<TEntity>
     {
         public IUserContextInfo UserContext { get; set; }
         public long? UserId => UserContext?.UserId;

@@ -1,4 +1,4 @@
-﻿using BlazorApp.Shared.Managers;
+﻿using Core.Shared.Managers;
 using System;
 
 namespace Core.Framework.Extensions

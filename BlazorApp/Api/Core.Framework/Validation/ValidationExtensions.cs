@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using BlazorApp.Shared.Validation;
+using Core.Shared.Validation;
 using Core.Framework.Extensions;
 using FluentValidation;
 

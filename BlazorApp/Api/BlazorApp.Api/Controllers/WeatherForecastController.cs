@@ -1,4 +1,4 @@
-﻿using BlazorApp.Shared;
+﻿using Core.Shared.Response;
 using Core.Framework;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BlazorApp.Shared.Entities;
 
 namespace BlazorApp.Api.Controllers
 {
@@ -24,16 +25,21 @@ namespace BlazorApp.Api.Controllers
         };
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public PagedResponse<WeatherForecast> Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var list = Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+            var response = new PagedResponse<WeatherForecast>
+            {
+                Payload = list
+            };
+            return response;
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using BlazorApp.Shared.Cache;
-using BlazorApp.Shared.Enums;
-using BlazorApp.Shared.Response;
+﻿using Core.Shared.Cache;
+using Core.Shared.Enums;
+using Core.Shared.Response;
 using System;
 
 namespace Core.Framework.Extensions

@@ -1,5 +1,5 @@
-﻿using BlazorApp.Shared;
-using BlazorApp.Shared.Requests;
+﻿using Core.Shared;
+using Core.Shared.Requests;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 

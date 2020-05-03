@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using BlazorApp.Shared.Repository;
+using Core.Shared.Repository;
 
 namespace Core.Framework.Extensions
 {

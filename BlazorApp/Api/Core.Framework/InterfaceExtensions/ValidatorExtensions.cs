@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using BlazorApp.Shared.Interfaces;
-using BlazorApp.Shared.Requests.File;
-using BlazorApp.Shared.Validation;
-using BlazorApp.Shared.ValidationCodes;
+using Core.Shared.Interfaces;
+using Core.Shared.Requests.File;
+using Core.Shared.Validation;
+using Core.Shared.ValidationCodes;
 using Core.Framework.Extensions;
 using Core.Framework.InterfaceExtensions.Validation;
 

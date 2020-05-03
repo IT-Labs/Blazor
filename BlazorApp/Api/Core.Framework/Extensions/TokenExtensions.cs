@@ -1,4 +1,4 @@
-﻿using BlazorApp.Shared.Dto;
+﻿using Core.Shared.Dto;
 using Newtonsoft.Json;
 using System;
 using System.IdentityModel.Tokens.Jwt;

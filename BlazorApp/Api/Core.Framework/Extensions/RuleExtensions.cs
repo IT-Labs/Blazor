@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BlazorApp.Shared.Validation;
+using Core.Shared.Validation;
 using Core.Framework.Validation;
 
 namespace Core.Framework.Extensions
