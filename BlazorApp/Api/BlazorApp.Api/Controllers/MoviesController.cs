@@ -19,6 +19,7 @@ namespace BlazorApp.Api.Controllers
             : base(httpContextAccessor)
         {
             _movieManager = movieManager;
+            _movieManager.SetContextInfo(GetUserContext(HttpContextAccessor));
         }
 
         [HttpGet]

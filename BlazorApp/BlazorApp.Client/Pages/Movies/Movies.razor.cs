@@ -33,5 +33,12 @@ namespace BlazorApp.Client.Pages.Movies
             _request.CurrentPage = page;
             _moviesResponse = await MoviesService.GetMultiple(_request);
         }
+
+        public async Task OnSearch(string title)
+        {
+            _moviesResponse = null;
+            _request.Title = title;
+            _moviesResponse = await MoviesService.GetMultiple(_request);
+        }
     }
 }

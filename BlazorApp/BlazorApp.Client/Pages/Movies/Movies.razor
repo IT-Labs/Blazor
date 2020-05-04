@@ -17,7 +17,11 @@
 
     <hr />
     <div>
-        <MoviesList OnPageChange="@OnPageChange" MoviesResponse="_moviesResponse" ShowGrid="_showGrid" />
+        <MoviesList 
+            OnSearch="@OnSearch" 
+            OnPageChange="@OnPageChange" 
+            MoviesResponse="_moviesResponse" 
+            ShowGrid="_showGrid" />
     </div>
 
 </div>

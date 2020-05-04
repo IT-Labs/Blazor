@@ -1,0 +1,13 @@
+﻿<div class="input-group mb-3">
+    <DxTextBox ClearButtonDisplayMode="@DataEditorClearButtonDisplayMode.Auto" NullText="Title filter" @bind-Text="@_titleFilter"></DxTextBox>
+    <div class="input-group-append">
+        <DxButton Click="@SearchMovies"
+            RenderStyle="@ButtonRenderStyle.Primary"
+            RenderStyleMode="@ButtonRenderStyleMode.Outline"
+            Text="Search" />
+        <DxButton Click="@Clear"
+            RenderStyle="@ButtonRenderStyle.Primary"
+            RenderStyleMode="@ButtonRenderStyleMode.Outline"
+            Text="Clear" />
+    </div>
+</div>

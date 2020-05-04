@@ -1,9 +1,18 @@
 ﻿@typeparam T
 
+@if (FilterTemplate != null)
+{
+    <div class="row">
+        <div class="col-md-3">
+            @FilterTemplate
+        </div>
+    </div>
+}
+
 @if (GetPageCount() > 0)
 {
     <div class="row" style="margin-bottom: 2%;">
-        <div class="col-md-12">
+        <div class="col-md-2">
             <DxPager PageCount="@GetPageCount()"
                      NavigationMode="PagerNavigationMode.NumericButtons"
                      @bind-ActivePageIndex="@ActivePage"
@@ -13,6 +22,7 @@
         </div>
     </div>
 }
+
 @if (Elements == null)
 {
     <div class="col-4 offset-4 text-center">

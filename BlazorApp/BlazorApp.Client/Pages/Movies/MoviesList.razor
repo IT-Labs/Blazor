@@ -17,6 +17,9 @@
 else
 {
     <GenericList ContainerClassName="d-flex justify-content-center movies-container col-md-10 offset-md-1" OnPageChange="@OnPageChange" Elements="MoviesResponse">
+        <FilterTemplate>
+            <MoviesFilter OnSearch="@OnSearch" />
+        </FilterTemplate>
         <ElementTemplate>
             <SingleMovie Movie="context" ShowGrid="ShowGrid" />
         </ElementTemplate>

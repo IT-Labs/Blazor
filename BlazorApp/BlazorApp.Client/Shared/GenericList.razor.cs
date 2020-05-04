@@ -8,6 +8,7 @@ namespace BlazorApp.Client.Shared
     {
         [Parameter] public string ContainerClassName { get; set; }
         [Parameter] public RenderFragment<T> ElementTemplate { get; set; }
+        [Parameter] public RenderFragment FilterTemplate { get; set; }
         [Parameter] public PagedResponse<T> Elements { get; set; }
         [Parameter] public EventCallback<int> OnPageChange { get; set; }
         [Parameter] public int ActivePage

@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorApp.Contracts\BlazorApp.Contracts.csproj" />
+    <ProjectReference Include="..\BlazorApp.Repository\BlazorApp.Repository.csproj" />
     <ProjectReference Include="..\Core.Framework\Core.Framework.csproj" />
   </ItemGroup>
 

@@ -9,5 +9,6 @@ namespace BlazorApp.Client.Pages.Movies
         [Parameter] public bool ShowGrid { get; set; }
         [Parameter] public PagedResponse<Movie> MoviesResponse { get; set; }
         [Parameter] public EventCallback<int> OnPageChange { get; set; }
+        [Parameter] public EventCallback<string> OnSearch { get; set; }
     }
 }

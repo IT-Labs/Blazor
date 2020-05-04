@@ -5,6 +5,6 @@ namespace BlazorApp.Shared.Requests.Movies
 {
     public class GetMoviesRequest : SortablePageableRequest<SortColumnCodes.Movies>
     {
-
+        public string Title { get; set; }
     }
 }

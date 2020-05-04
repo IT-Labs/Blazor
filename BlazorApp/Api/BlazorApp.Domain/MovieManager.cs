@@ -1,4 +1,5 @@
 ﻿using BlazorApp.Contracts.Managers;
+using BlazorApp.Repository.Filters;
 using BlazorApp.Shared.Entities;
 using BlazorApp.Shared.Enums.Sort;
 using BlazorApp.Shared.Requests.Movies;
@@ -13,7 +14,7 @@ namespace BlazorApp.Domain
         public MovieManager(DomainRepository repository, ILogger<MovieManager> logger) 
             : base(repository, null, SortColumnCodes.MoviesSort, logger)
         {
-
+            QueryFiltersFunc = x => Filters.Movies(WrapRequest(x));
         }
     }
 }

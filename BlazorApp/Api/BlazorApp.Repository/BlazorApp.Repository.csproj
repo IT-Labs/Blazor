@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Filters\" />
     <Folder Include="Mappings\" />
     <Folder Include="QueryInclude\" />
     <Folder Include="Queries\" />
