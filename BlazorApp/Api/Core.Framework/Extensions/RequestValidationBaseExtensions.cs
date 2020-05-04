@@ -1,8 +1,7 @@
-﻿using System;
-using System.Net;
-using Core.Shared.Interfaces;
+﻿using Core.Shared.Interfaces;
 using Core.Shared.Validation;
-using Core.Framework.Validation;
+using System;
+using System.Net;
 
 namespace Core.Framework.Extensions
 {

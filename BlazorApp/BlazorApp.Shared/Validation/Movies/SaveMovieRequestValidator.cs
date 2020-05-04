@@ -1,12 +1,11 @@
 ﻿using BlazorApp.Shared.Requests.Movies;
+using Core.Shared.Validation;
 using FluentValidation;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BlazorApp.Shared.Validation.Movies
 {
-    public class SaveMovieRequestValidator : AbstractValidator<SaveMovieRequest>, IValidator
+    public class SaveMovieRequestValidator : ValidatorBase<SaveMovieRequest>
     {
         public SaveMovieRequestValidator()
         {
