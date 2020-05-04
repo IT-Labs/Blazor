@@ -10,7 +10,7 @@ namespace BlazorApp.Client.Shared
         [Parameter] public RenderFragment<T> ElementTemplate { get; set; }
         [Parameter] public PagedResponse<T> Elements { get; set; }
         [Parameter] public EventCallback<int> OnPageChange { get; set; }
-        [Parameter] public int ActivePage 
+        [Parameter] public int ActivePage
         { 
             get
             {
@@ -24,12 +24,17 @@ namespace BlazorApp.Client.Shared
         }
 
         private int _activePage;
+        private int _totalCount;
 
         private int GetPageCount()
         {
+            if (Elements == null)
+                return _totalCount;
+
             var meta = Elements.Meta;
             var total = (double)meta.TotalCount / (double)meta.PageSize;
-            return (int)Math.Ceiling(total);
+            _totalCount = (int)Math.Ceiling(total);
+            return _totalCount;
         }
     }
 }

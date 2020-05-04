@@ -1,5 +1,18 @@
 ﻿@typeparam T
 
+@if (GetPageCount() > 0)
+{
+    <div class="row" style="margin-bottom: 2%;">
+        <div class="col-md-12">
+            <DxPager PageCount="@GetPageCount()"
+                     NavigationMode="PagerNavigationMode.NumericButtons"
+                     @bind-ActivePageIndex="@ActivePage"
+                     AutoHideNavButtons="false"
+                     VisibleNumericButtonCount="4">
+            </DxPager>
+        </div>
+    </div>
+}
 @if (Elements == null)
 {
     <div class="col-4 offset-4 text-center">
@@ -12,29 +25,11 @@ else if (Elements.Ok)
 {
     if (Elements.Payload.Any())
     {
-        <div class="row" style="margin-bottom: 2%;">
-            <div class="col-md-12">
-                <DxPager PageCount="@GetPageCount()"
-                         NavigationMode="PagerNavigationMode.InputBox"
-                         @bind-ActivePageIndex="@ActivePage">
-                </DxPager>
-            </div>
-        </div>
-
         <div class="@ContainerClassName">
             @foreach (var element in Elements.Payload)
             {
                 @ElementTemplate(element)
             }
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <DxPager PageCount="@GetPageCount()"
-                         NavigationMode="PagerNavigationMode.InputBox"
-                         @bind-ActivePageIndex="@ActivePage">
-                </DxPager>
-            </div>
         </div>
     }
     else
