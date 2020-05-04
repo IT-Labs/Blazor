@@ -12,10 +12,30 @@ else if (Elements.Ok)
 {
     if (Elements.Payload.Any())
     {
-        @foreach (var element in Elements.Payload)
-        {
-            @ElementTemplate(element)
-        }
+        <div class="row" style="margin-bottom: 2%;">
+            <div class="col-md-12">
+                <DxPager PageCount="@GetPageCount()"
+                         NavigationMode="PagerNavigationMode.InputBox"
+                         @bind-ActivePageIndex="@ActivePage">
+                </DxPager>
+            </div>
+        </div>
+
+        <div class="@ContainerClassName">
+            @foreach (var element in Elements.Payload)
+            {
+                @ElementTemplate(element)
+            }
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <DxPager PageCount="@GetPageCount()"
+                         NavigationMode="PagerNavigationMode.InputBox"
+                         @bind-ActivePageIndex="@ActivePage">
+                </DxPager>
+            </div>
+        </div>
     }
     else
     {
@@ -26,4 +46,4 @@ else if (Elements.Ok)
             <h3>No elements</h3>
         </div>
     }
-};
+}

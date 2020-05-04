@@ -24,7 +24,6 @@ namespace BlazorApp.Api.Controllers
         [HttpGet]
         public PagedResponse<Movie> GetMultiple([FromQuery] GetMoviesRequest request)
         {
-            Thread.Sleep(1000);
             return _movieManager.GetMultiple(request);
         }
 
