@@ -2,23 +2,23 @@
     <div style="margin-right:2%">
         <DxTextBox ClearButtonDisplayMode="@DataEditorClearButtonDisplayMode.Auto"
                    NullText="Title filter"
-                   @bind-Text="@_titleFilter">
+                   @bind-Text="@_request.Title">
         </DxTextBox>
     </div>
     <div style="margin-right:2%">
-        <DxComboBox Data="@_sortBy.Data"
+        <DxComboBox Data="@_sortAndOrder.SortBy.Data"
                     AllowUserInput="false"
                     NullText="Sort by"
-                    @bind-SelectedItem="@_sortBy.Item"
-                    @bind-Text="@_sortBy.Text">
+                    @bind-SelectedItem="@_sortAndOrder.SortBy.Item"
+                    @bind-Text="@_sortAndOrder.SortBy.Text">
         </DxComboBox>
     </div>
     <div style="margin-right:2%">
-        <DxComboBox Data="@_ascDesc.Data"
+        <DxComboBox Data="@_sortAndOrder.AscDesc.Data"
                     AllowUserInput="false"
                     NullText="Ascending/Descending"
-                    @bind-SelectedItem="@_ascDesc.Item"
-                    @bind-Text="@_ascDesc.Text">
+                    @bind-SelectedItem="@_sortAndOrder.AscDesc.Item"
+                    @bind-Text="@_sortAndOrder.AscDesc.Text">
         </DxComboBox>
     </div>
     <div class="input-group-append">
