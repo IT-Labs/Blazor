@@ -1,6 +1,8 @@
 ﻿using BlazorApp.Client.Services;
 using BlazorApp.Shared.Entities;
+using BlazorApp.Shared.Enums.Sort;
 using BlazorApp.Shared.Requests.Movies;
+using Core.Shared.Enums;
 using Core.Shared.Response;
 using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
@@ -34,10 +36,12 @@ namespace BlazorApp.Client.Pages.Movies
             _moviesResponse = await MoviesService.GetMultiple(_request);
         }
 
-        public async Task OnSearch(string title)
+        public async Task OnSearch(GetMoviesRequest request)
         {
             _moviesResponse = null;
-            _request.Title = title;
+            _request.SortOrder = request.SortOrder;
+            _request.OrderColumnName = request.OrderColumnName;
+            _request.Title = request.Title;
             _moviesResponse = await MoviesService.GetMultiple(_request);
         }
     }

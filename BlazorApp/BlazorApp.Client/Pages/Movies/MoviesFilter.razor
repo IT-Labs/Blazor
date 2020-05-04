@@ -1,13 +1,38 @@
 ﻿<div class="input-group mb-3">
-    <DxTextBox ClearButtonDisplayMode="@DataEditorClearButtonDisplayMode.Auto" NullText="Title filter" @bind-Text="@_titleFilter"></DxTextBox>
+    <div style="margin-right:2%">
+        <DxTextBox ClearButtonDisplayMode="@DataEditorClearButtonDisplayMode.Auto"
+                   NullText="Title filter"
+                   @bind-Text="@_titleFilter">
+        </DxTextBox>
+    </div>
+    <div style="margin-right:2%">
+        <DxComboBox Data="@_sortBy.Data"
+                    AllowUserInput="false"
+                    NullText="Sort by"
+                    @bind-SelectedItem="@_sortBy.Item"
+                    @bind-Text="@_sortBy.Text">
+        </DxComboBox>
+    </div>
+    <div style="margin-right:2%">
+        <DxComboBox Data="@_ascDesc.Data"
+                    AllowUserInput="false"
+                    NullText="Ascending/Descending"
+                    @bind-SelectedItem="@_ascDesc.Item"
+                    @bind-Text="@_ascDesc.Text">
+        </DxComboBox>
+    </div>
     <div class="input-group-append">
-        <DxButton Click="@SearchMovies"
-            RenderStyle="@ButtonRenderStyle.Primary"
-            RenderStyleMode="@ButtonRenderStyleMode.Outline"
-            Text="Search" />
-        <DxButton Click="@Clear"
-            RenderStyle="@ButtonRenderStyle.Primary"
-            RenderStyleMode="@ButtonRenderStyleMode.Outline"
-            Text="Clear" />
+        <div style="margin-right:2%">
+            <DxButton Click="@SearchMovies"
+                      RenderStyle="@ButtonRenderStyle.Primary"
+                      RenderStyleMode="@ButtonRenderStyleMode.Outline"
+                      Text="Search" />
+        </div>
+        <div style="margin-right:2%">
+            <DxButton Click="@Clear"
+                      RenderStyle="@ButtonRenderStyle.Primary"
+                      RenderStyleMode="@ButtonRenderStyleMode.Outline"
+                      Text="Clear" />
+        </div>
     </div>
 </div>

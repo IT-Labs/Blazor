@@ -10,12 +10,16 @@ namespace BlazorApp.Shared.Enums.Sort
     {
         public enum Movies
         {
-            CreatedAt
+            CreatedAt,
+            Title,
+            ReleaseDate
         }
 
         public static Dictionary<Movies, Expression<Func<Movie, object>>> MoviesSort = new Dictionary<Movies, Expression<Func<Movie, object>>>()
         {
-            {Movies.CreatedAt, x => x.CreatedAt}
+            {Movies.CreatedAt, x => x.CreatedAt},
+            {Movies.Title, x => x.Title},
+            {Movies.ReleaseDate, x => x.ReleaseDate}
         };
     }
 }
