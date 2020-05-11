@@ -25,7 +25,8 @@ namespace BlazorApp.Api.Controllers
         [HttpGet]
         public PagedResponse<Movie> GetMultiple([FromQuery] GetMoviesRequest request)
         {
-            return _movieManager.GetMultiple(request);
+            var movies = _movieManager.GetMultiple(request);
+            return movies;
         }
 
         [HttpPost]

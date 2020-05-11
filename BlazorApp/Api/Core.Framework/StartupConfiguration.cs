@@ -155,7 +155,10 @@ namespace Core.Framework
         private void SeedInMemoryDatabase(IContext context)
         {
             var movies = TestData.MoviesTestData();
+            var actors = TestData.ActorsTestData();
             context.Insert(movies);
+            context.Insert(actors);
+            context.Insert(TestData.ActorMoviesTestData(movies, actors));
         }
 
         public virtual ServiceRegistry AdditionalContainerConfiguration(ServiceRegistry services)

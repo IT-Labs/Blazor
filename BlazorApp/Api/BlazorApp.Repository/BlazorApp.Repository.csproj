@@ -5,13 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core.Shared\Core.Shared.csproj" />
     <ProjectReference Include="..\Core.Framework\Core.Framework.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Mappings\" />
-    <Folder Include="QueryInclude\" />
     <Folder Include="Queries\" />
   </ItemGroup>
 

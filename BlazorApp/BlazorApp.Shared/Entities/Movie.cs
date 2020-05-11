@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Core.Shared;
 
@@ -11,6 +12,7 @@ namespace BlazorApp.Shared.Entities
         public string Image { get; set; }
         public DateTime PremiereDate { get; set; }
         public int LengthMinutes { get; set; } = 120;
+        public List<ActorMovie> Actors { get; set; }
 
         [NotMapped]
         public string TitleBrief

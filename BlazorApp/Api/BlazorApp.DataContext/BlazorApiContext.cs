@@ -11,6 +11,8 @@ namespace BlazorApp.DataContext
     public class BlazorApiContext : CoreDataContext
     {
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Actor> Actors { get; set; }
+        public DbSet<ActorMovie> ActorMovies { get; set; }
 
         public BlazorApiContext(DbContextOptions options, ILogger<BlazorApiContext> logger)
             : base(options, logger)
@@ -25,6 +27,21 @@ namespace BlazorApp.DataContext
             builder.Entity<Movie>(entity =>
             {
                 entity.HasKey(x => x.Id);
+                entity.HasMany(x => x.Actors).WithOne(x => x.Movie);
+            });
+
+            builder.Entity<Actor>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                //entity.HasMany(x => x.Movies).WithOne(x => x.Actor);
+            });
+
+            builder.Entity<ActorMovie>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                //entity.HasOne(x => x.Movie).WithMany(x => x.Actors);
+                entity.HasOne(x => x.Actor).WithMany(x => x.Movies)
+                      .HasForeignKey(x => x.ActorId);
             });
         }
     }
