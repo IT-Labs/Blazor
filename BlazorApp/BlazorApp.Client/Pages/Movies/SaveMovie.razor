@@ -13,7 +13,17 @@ else
 <EditForm Model="_saveMovieRequest" OnValidSubmit="CreateOrUpdateMovie">
     <FluentValidator Validator="_saveMovieRequestValidator"></FluentValidator>
     <div class="row">
-        <div class="col-3">
+        <div class="col-md-3">
+            <div>
+                @if (string.IsNullOrWhiteSpace(_saveMovieRequest?.Image))
+                {
+                    <img src="https://via.placeholder.com/200x200.png?text=Put+Here+Movie+Poster" alt="Image" style="width:286px;" />
+                }
+                else
+                {
+                    <img src="@_saveMovieRequest.Image" alt="Image" style="width:286px;" />
+                }
+            </div>
             <div class="form-group">
                 <label>Title</label>
                 <InputText type="text" class="form-control" placeholder="Title" @bind-Value="_saveMovieRequest.Title" />
@@ -35,14 +45,17 @@ else
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
         </div>
-        <div class="col-3 offset-1">
-            @if (string.IsNullOrWhiteSpace(_saveMovieRequest?.Image))
+        <div class="col-md-8 offset-md-1">
+            @if (Id.HasValue && _movie != null && _movie.Actors != null && _movie.Actors.Any())
             {
-                <img src="https://via.placeholder.com/200x200.png?text=Put+Here+Movie+Poster" alt="Image" style="width:286px;" />
-            }
-            else
-            {
-                <img src="@_saveMovieRequest.Image" alt="Image" style="width:286px;" />
+                <h2>Actors:</h2>
+                foreach (var actor in _movie.Actors)
+                {
+                    <div class="card float-left" style="width: 15rem; margin:3%">
+                        <img src="@actor.Image" class="card-img-top rounded float-left" alt="@actor.FullName" />
+                        <h5 class="card-title">@actor?.FullName</h5>
+                    </div>
+                }
             }
         </div>
     </div>

@@ -12,7 +12,7 @@ namespace BlazorApp.Repository.QueryInclude
     {
         public IQueryable<Movie> Include(IQueryable<Movie> query)
         {
-            return query.Include(x => x.Actors).ThenInclude(x => x.Actor);
+            return query.Include(x => x.ActorMovies).ThenInclude(x => x.Actor);
         }
     }
 }

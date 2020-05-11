@@ -27,21 +27,20 @@ namespace BlazorApp.DataContext
             builder.Entity<Movie>(entity =>
             {
                 entity.HasKey(x => x.Id);
-                entity.HasMany(x => x.Actors).WithOne(x => x.Movie);
+                //entity.HasMany(x => x.ActorMovies).WithOne(x => x.Movie);
             });
 
             builder.Entity<Actor>(entity =>
             {
                 entity.HasKey(x => x.Id);
-                //entity.HasMany(x => x.Movies).WithOne(x => x.Actor);
+                //entity.HasMany(x => x.ActorMovies).WithOne(x => x.Actor);
             });
 
             builder.Entity<ActorMovie>(entity =>
             {
                 entity.HasKey(x => x.Id);
-                //entity.HasOne(x => x.Movie).WithMany(x => x.Actors);
-                entity.HasOne(x => x.Actor).WithMany(x => x.Movies)
-                      .HasForeignKey(x => x.ActorId);
+                entity.HasOne(x => x.Movie).WithMany(x => x.ActorMovies).HasForeignKey(x => x.MovieId);
+                entity.HasOne(x => x.Actor).WithMany(x => x.ActorMovies).HasForeignKey(x => x.ActorId);
             });
         }
     }

@@ -158,7 +158,8 @@ namespace Core.Framework
             var actors = TestData.ActorsTestData();
             context.Insert(movies);
             context.Insert(actors);
-            context.Insert(TestData.ActorMoviesTestData(movies, actors));
+            var actormovies = TestData.ActorMoviesTestData(movies, actors);
+            context.UpdateMultiple(actormovies);
         }
 
         public virtual ServiceRegistry AdditionalContainerConfiguration(ServiceRegistry services)

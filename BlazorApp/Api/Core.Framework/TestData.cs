@@ -145,22 +145,31 @@ namespace Core.Framework
             return actors;
         }
 
-        public static List<ActorMovie> ActorMoviesTestData(List<Movie> movies, List<Actor> actors)
+        public static List<Movie> ActorMoviesTestData(List<Movie> movies, List<Actor> actors)
         {
-            var moviesRandomId = new Random();
-            var actorsRandomId = new Random();
-            var result = new List<ActorMovie>();
-
-            for (int i = 0; i < 50; i++)
+            var random = new Random();
+            var ids = actors.Select(x => x.Id).ToList();
+            foreach (var movie in movies)
             {
-                result.Add(new ActorMovie
+                var set = new HashSet<long>();
+                for (int i = 0; i < 3;)
                 {
-                    MovieId = moviesRandomId.Next(0, movies.Count),
-                    ActorId = actorsRandomId.Next(0, actors.Count)
-                });
+                    var next = ids[random.Next(0, ids.Count())];
+                    if (set.Add(next))
+                    {
+                        var actor = actors.FirstOrDefault(x => x.Id == next);
+                        if (actor != null)
+                        {
+                            i++;
+                            movie.ActorMovies.Add(new ActorMovie
+                            {
+                                Actor = actor
+                            });
+                        }
+                    }
+                }
             }
-
-            return result;
+            return movies;
         }
     }
 }
