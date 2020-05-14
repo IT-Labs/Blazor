@@ -1,4 +1,5 @@
-﻿using BlazorApp.Client.Services;
+﻿using BlazorApp.Client.Interfaces;
+using BlazorApp.Client.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,7 +47,8 @@ namespace BlazorApp.Client
 
             services.AddScoped<ToasterService>();
             services.AddScoped<HttpService>();
-            services.AddScoped<MoviesService>();
+            //services.AddScoped<MoviesService>();
+            services.AddScoped<IMoviesService, MoviesService>();
             services.AddDevExpressBlazor();
         }
     }

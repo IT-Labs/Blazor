@@ -1,4 +1,5 @@
-﻿using BlazorApp.Client.Services;
+﻿using BlazorApp.Client.Interfaces;
+using BlazorApp.Client.Services;
 using BlazorApp.Shared.Entities;
 using BlazorApp.Shared.Enums.Sort;
 using BlazorApp.Shared.Requests.Movies;
@@ -11,7 +12,7 @@ namespace BlazorApp.Client.Pages.Movies
 {
     public partial class Movies
     {
-        [Inject] public MoviesService MoviesService { get; set; }
+        [Inject] public IMoviesService MoviesService { get; set; }
 
         private bool _showGrid { get; set; }
         private PagedResponse<Movie> _moviesResponse;
@@ -19,9 +20,18 @@ namespace BlazorApp.Client.Pages.Movies
 
         protected async override Task OnInitializedAsync()
         {
-            _showGrid = false;
+            _showGrid = true;
             _request = new GetMoviesRequest { PageSize = 8 };
             _moviesResponse = await MoviesService.GetMultiple(_request);
+        }
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            if (firstRender)
+            {
+                _showGrid = true;
+                HandleToogle(new ChangeEventArgs() { Value = true });
+            }
         }
 
         void HandleToogle(ChangeEventArgs e)

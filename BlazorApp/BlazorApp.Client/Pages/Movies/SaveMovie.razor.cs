@@ -1,4 +1,5 @@
-﻿using BlazorApp.Client.Services;
+﻿using BlazorApp.Client.Interfaces;
+using BlazorApp.Client.Services;
 using BlazorApp.Shared.Entities;
 using BlazorApp.Shared.Requests.Movies;
 using BlazorApp.Shared.Validation.Movies;
@@ -11,7 +12,7 @@ namespace BlazorApp.Client.Pages.Movies
     public partial class SaveMovie
     {
         [Parameter] public int? Id { get; set; }
-        [Inject] public MoviesService MoviesService { get; set; }
+        [Inject] public IMoviesService MoviesService { get; set; }
         [Inject] public NavigationManager Nvm { get; set; }
 
         private SaveMovieRequest _saveMovieRequest { get; set; } = new SaveMovieRequest();

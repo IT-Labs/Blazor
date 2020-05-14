@@ -1,4 +1,5 @@
 ﻿using BlazorApp.Client.Extensions;
+using BlazorApp.Client.Interfaces;
 using BlazorApp.Client.Services;
 using BlazorApp.Shared.Entities;
 using BlazorApp.Shared.Requests.Movies;
@@ -13,7 +14,7 @@ namespace BlazorApp.Client.Pages
 {
     public partial class PremiereCalendar
     {
-        [Inject] public MoviesService MoviesService { get; set; }
+        [Inject] public IMoviesService MoviesService { get; set; }
 
         private PagedResponse<Movie> _moviesResponse;
         private DxSchedulerDataStorage _dataStorage = new DxSchedulerDataStorage();

@@ -1,4 +1,5 @@
 ﻿using BlazorApp.Client.Extensions;
+using BlazorApp.Client.Interfaces;
 using BlazorApp.Shared.Entities;
 using BlazorApp.Shared.Requests.Movies;
 using Core.Shared.Requests;
@@ -7,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BlazorApp.Client.Services
 {
-    public class MoviesService
+    public class MoviesService : IMoviesService
     {
         private readonly HttpService _http;
-        private readonly string _route = "/movies"; 
+        private readonly string _route = "/movies";
 
         public MoviesService(HttpService http)
         {
@@ -31,7 +32,7 @@ namespace BlazorApp.Client.Services
 
         public async Task<Response<long>> Save(SaveMovieRequest request)
         {
-            return request.Id.HasValue 
+            return request.Id.HasValue
                 ? await _http.Put<long>($"{_route}/{request.Id}", request)
                 : await _http.Post<long>(_route, request);
         }

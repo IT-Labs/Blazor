@@ -1,27 +1,33 @@
 ﻿@using BlazorTable
 
-
 @if (ShowGrid)
 {
-    <Table TableItem="Movie" Items="MoviesResponse.Payload" PageSize="5">
-        <Column TableItem="Movie" Title="Title" Field="@(x => x.Title)" Sortable="true" Filterable="true" Width="50%" />
-        <Column TableItem="Movie" Title="ReleaseDate" Field="@(x => x.ReleaseDate)" Sortable="true" Filterable="true" Width="40%" />
-        <Column TableItem="Movie" Title="Image" Sortable="false" Filterable="false" Width="10%">
-            <Template>
-                <img src="@context.Image" alt="Image" style="@(ShowGrid ? "height:180px;" : "width:286px;")" />
-            </Template>
-        </Column>
-        <Pager ShowPageNumber="true" ShowTotalCount="true" />
-    </Table>
+	@if (MoviesResponse == null)
+	{
+		<p><em>Loading...</em></p>
+	}
+	else
+	{ 
+		<Table TableItem="Movie" Items="MoviesResponse.Payload" PageSize="5">
+			<Column TableItem="Movie" Title="Title" Field="@(x => x.Title)" Sortable="true" Filterable="true" Width="50%" />
+			<Column TableItem="Movie" Title="ReleaseDate" Field="@(x => x.ReleaseDate)" Sortable="true" Filterable="true" Width="40%" />
+			<Column TableItem="Movie" Title="Image" Sortable="false" Filterable="false" Width="10%">
+				<Template>
+					<img src="@context.Image" alt="Image" style="@(ShowGrid ? "height:180px;" : "width:286px;")" />
+				</Template>
+			</Column>
+			<Pager ShowPageNumber="true" ShowTotalCount="true" />
+		</Table>
+	}
 }
 else
 {
-    <GenericList ContainerClassName="d-flex justify-content-center movies-container col-md-10 offset-md-1" OnPageChange="@OnPageChange" Elements="MoviesResponse">
-        <FilterTemplate>
-            <MoviesFilter OnSearch="@OnSearch" />
-        </FilterTemplate>
-        <ElementTemplate>
-            <SingleMovie Movie="context" ShowGrid="ShowGrid" />
-        </ElementTemplate>
-    </GenericList>
-}
+		<GenericList ContainerClassName="d-flex justify-content-center movies-container col-md-10 offset-md-1" OnPageChange="@OnPageChange" Elements="MoviesResponse">
+			<FilterTemplate>
+				<MoviesFilter OnSearch="@OnSearch" />
+			</FilterTemplate>
+			<ElementTemplate>
+				<SingleMovie Movie="context" ShowGrid="ShowGrid" />
+			</ElementTemplate>
+		</GenericList>
+	}
