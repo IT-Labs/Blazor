@@ -16,5 +16,6 @@ namespace BlazorApp.Client.Interfaces
 		Task<Response<Movie>> Get(IdRequest request);
 
 		Task<Response<long>> Save(SaveMovieRequest request);
+		Task<Response<bool>> Delete(IdRequest request);
 	}
 }

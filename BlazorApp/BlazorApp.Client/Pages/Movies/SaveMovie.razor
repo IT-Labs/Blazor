@@ -10,38 +10,38 @@ else
     <h3>Create Movie</h3>
 }
 
-<EditForm Model="_saveMovieRequest" OnValidSubmit="CreateOrUpdateMovie">
-    <FluentValidator Validator="_saveMovieRequestValidator"></FluentValidator>
+<EditForm Model="SaveMovieRequest" OnValidSubmit="CreateOrUpdateMovie">
+    <FluentValidator Validator="SaveMovieRequestValidator"></FluentValidator>
     <div class="row">
         <div class="col-md-3">
             <div>
-                @if (string.IsNullOrWhiteSpace(_saveMovieRequest?.Image))
+                @if (string.IsNullOrWhiteSpace(SaveMovieRequest?.Image))
                 {
                     <img src="https://via.placeholder.com/200x200.png?text=Put+Here+Movie+Poster" alt="Image" style="width:286px;" />
                 }
                 else
                 {
-                    <img src="@_saveMovieRequest.Image" alt="Image" style="width:286px;" />
+                    <img src="@SaveMovieRequest.Image" alt="Image" style="width:286px;" />
                 }
             </div>
             <div class="form-group">
                 <label>Title</label>
-                <InputText type="text" class="form-control" placeholder="Title" @bind-Value="_saveMovieRequest.Title" />
-                <ValidationMessage For="() => _saveMovieRequest.Title"></ValidationMessage>
+                <InputText type="text" class="form-control" placeholder="Title" @bind-Value="SaveMovieRequest.Title" />
+                <ValidationMessage For="() => SaveMovieRequest.Title"></ValidationMessage>
             </div>
             <div class="form-group">
                 <label>Release Date</label>
                 <DxDateEdit FirstDayOfWeek="@DayOfWeek.Monday"
                             PickerDisplayMode="@DatePickerDisplayMode.Calendar"
-                            @bind-Date="@_saveMovieRequest.ReleaseDate"
+                            @bind-Date="@SaveMovieRequest.ReleaseDate"
                             NullText="Please select a date"
                             DropDownVisible="@false">
                 </DxDateEdit>
-                <ValidationMessage For="() => _saveMovieRequest.ReleaseDate"></ValidationMessage>
+                <ValidationMessage For="() => SaveMovieRequest.ReleaseDate"></ValidationMessage>
             </div>
             <div class="form-group">
                 <label>Movie Poster</label>
-                <InputText type="text" class="form-control" placeholder="Paste image url" @bind-Value="_saveMovieRequest.Image" />
+                <InputText type="text" class="form-control" placeholder="Paste image url" @bind-Value="SaveMovieRequest.Image" />
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
         </div>

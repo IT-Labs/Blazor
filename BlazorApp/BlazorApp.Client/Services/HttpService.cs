@@ -79,6 +79,21 @@ namespace BlazorApp.Client.Services
             return responseBody;
         }
 
+        public async Task<Response<T>> Delete<T>(string route, string queryString = null)
+        {
+            if (!string.IsNullOrWhiteSpace(queryString))
+            {
+                route += "?" + queryString;
+            }
+            var response = await HttpClient.DeleteAsync($"api{route}");
+            var content = await response.Content.ReadAsStringAsync();
+            var responseBody = JsonConvert.DeserializeObject<Response<T>>(content);
+
+            ShowErrorMessages(responseBody);
+
+            return responseBody;
+        }
+
         private void ShowMessages<T>(Response<T> response)
         {
             ShowSuccessMessages(response);

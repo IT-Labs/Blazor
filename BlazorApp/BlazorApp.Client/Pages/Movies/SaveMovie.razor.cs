@@ -15,14 +15,14 @@ namespace BlazorApp.Client.Pages.Movies
         [Inject] public IMoviesService MoviesService { get; set; }
         [Inject] public NavigationManager Nvm { get; set; }
 
-        private SaveMovieRequest _saveMovieRequest { get; set; } = new SaveMovieRequest();
-        private SaveMovieRequestValidator _saveMovieRequestValidator { get; set; } = new SaveMovieRequestValidator();
+        private SaveMovieRequest SaveMovieRequest { get; set; } = new SaveMovieRequest();
+        private SaveMovieRequestValidator SaveMovieRequestValidator { get; set; } = new SaveMovieRequestValidator();
         private Movie _movie;
 
         public async Task CreateOrUpdateMovie()
         {
-            var response = await MoviesService.Save(_saveMovieRequest);
-            if (!_saveMovieRequest.Id.HasValue && response.Ok)
+            var response = await MoviesService.Save(SaveMovieRequest);
+            if (!SaveMovieRequest.Id.HasValue && response.Ok)
             {
                 Nvm.NavigateTo("/");
             }
@@ -36,7 +36,7 @@ namespace BlazorApp.Client.Pages.Movies
                 if (response.Ok)
                 {
                     _movie = response.Payload;
-                    _saveMovieRequest = new SaveMovieRequest
+                    SaveMovieRequest = new SaveMovieRequest
                     {
                         Id = _movie.Id,
                         Image = _movie.Image,

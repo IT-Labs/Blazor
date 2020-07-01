@@ -36,5 +36,11 @@ namespace BlazorApp.Client.Services
                 ? await _http.Put<long>($"{_route}/{request.Id}", request)
                 : await _http.Post<long>(_route, request);
         }
+
+        public async Task<Response<bool>> Delete(IdRequest request)
+        {
+            var response = await _http.Delete<bool>($"{_route}/{request.Id}");
+            return response;
+        }
     }
 }

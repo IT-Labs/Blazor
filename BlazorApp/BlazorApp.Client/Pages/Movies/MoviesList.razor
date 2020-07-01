@@ -27,7 +27,7 @@ else
 				<MoviesFilter OnSearch="@OnSearch" />
 			</FilterTemplate>
 			<ElementTemplate>
-				<SingleMovie Movie="context" ShowGrid="ShowGrid" />
+				<SingleMovie Movie="context" ShowGrid="ShowGrid" OnMovieDeleted="MovieDeleted" />
 			</ElementTemplate>
 		</GenericList>
 	}

@@ -14,13 +14,13 @@ namespace BlazorApp.Client.Pages.Movies
     {
         [Inject] public IMoviesService MoviesService { get; set; }
 
-        private bool _showGrid { get; set; }
+        private bool ShowGrid { get; set; }
         private PagedResponse<Movie> _moviesResponse;
         private GetMoviesRequest _request;
 
         protected async override Task OnInitializedAsync()
         {
-            _showGrid = true;
+            ShowGrid = true;
             _request = new GetMoviesRequest { PageSize = 8 };
             _moviesResponse = await MoviesService.GetMultiple(_request);
         }
@@ -29,14 +29,14 @@ namespace BlazorApp.Client.Pages.Movies
         {
             if (firstRender)
             {
-                _showGrid = true;
+                ShowGrid = true;
                 HandleToogle(new ChangeEventArgs() { Value = true });
             }
         }
 
         void HandleToogle(ChangeEventArgs e)
         {
-            _showGrid = (bool)e.Value;
+            ShowGrid = (bool)e.Value;
         }
 
         public async Task OnPageChange(int page)
@@ -52,6 +52,12 @@ namespace BlazorApp.Client.Pages.Movies
             _request.SortOrder = request.SortOrder;
             _request.OrderColumnName = request.OrderColumnName;
             _request.Title = request.Title;
+            _moviesResponse = await MoviesService.GetMultiple(_request);
+        }
+
+        protected async Task MovieDeleted()
+        {
+            _request = new GetMoviesRequest { PageSize = 8 };
             _moviesResponse = await MoviesService.GetMultiple(_request);
         }
     }

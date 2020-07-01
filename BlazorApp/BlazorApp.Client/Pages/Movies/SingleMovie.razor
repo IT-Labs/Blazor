@@ -4,6 +4,7 @@
         <div class="card-body">
             <h5 class="card-title">@Movie.TitleBrief</h5>
             <a href="/movies/save/@Movie.Id" class="btn btn-outline-info">Edit</a>
+            <button class="btn btn-outline-danger" @onclick="Delete_Movie">Delete</button>
         </div>
     </div>
 </div>

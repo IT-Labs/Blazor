@@ -9,7 +9,6 @@ using Core.Shared.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Threading;
 
 namespace BlazorApp.Api.Controllers
 {
@@ -53,10 +52,16 @@ namespace BlazorApp.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public Response<long> Update([FromRoute] IdRequest idRequest, [FromBody]SaveMovieRequest request)
+        public Response<long> Update([FromRoute] IdRequest idRequest, [FromBody] SaveMovieRequest request)
         {
             request.Id = idRequest.Id;
             return _movieManager.Save(request);
+        }
+
+        [HttpDelete("{id}")]
+        public Response<bool> Delete([FromRoute] IdRequest request)
+        {
+            return _movieManager.SetStatus<Movie>(request, false);
         }
     }
 }
